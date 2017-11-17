@@ -5,7 +5,6 @@ require_relative 'entry'
         def initialize
          @entries = []
         end
-    end
     
     def add_entry(name, phone_number, email)
      index = 0
@@ -17,3 +16,4 @@ require_relative 'entry'
      end
      entries.insert(index, Entry.new(name, phone_number, email))
     end
+    end 
