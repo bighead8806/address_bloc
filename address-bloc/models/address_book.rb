@@ -23,9 +23,5 @@ class AddressBook
             entries.delete(entry)
             end 
         end
-<<<<<<< HEAD
-    end 
-=======
     end
->>>>>>> checkpoint-4-assignment
 end
