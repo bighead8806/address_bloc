@@ -20,7 +20,11 @@ require_relative '../models/address_book'
    describe "#remove_entry" do
       it "removes an entry using the name, phone_number and email" do
           book = AddressBook.new
+<<<<<<< HEAD:spec/address_book_spec.rb
           book.add_entry('Adam Mohrbacher', '651.587.4792', 'adam.mohrbacher@gmail.com')
+=======
+          book.add_entry('Adam Mohrbacher', '621.303.3271', 'a.mohrbacher@yahoo.com')
+>>>>>>> master:address-bloc/spec/address_book_spec.rb
     
           name = 'Ada Lovelace'
           phone_number = '010.012.1815'
@@ -54,4 +58,8 @@ require_relative '../models/address_book'
            expect(new_entry.email).to eq('augusta.king@lovelace.com')
         end
     end
+<<<<<<< HEAD:spec/address_book_spec.rb
 end
+=======
+end
+>>>>>>> master:address-bloc/spec/address_book_spec.rb
