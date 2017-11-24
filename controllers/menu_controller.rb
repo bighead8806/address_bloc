@@ -1,6 +1,6 @@
  require_relative '../models/address_book'
- 
- class MenuController
+
+class MenuController
    attr_reader :address_book
  
    def initialize
@@ -14,7 +14,8 @@
      puts "2 - Create an entry"
      puts "3 - Search for an entry"
      puts "4 - Import entries from a CSV"
-     puts "5 - Exit"
+     puts "5 - View Entry n"
+     puts "6 - Exit"
      print "Enter your selection: "
  
      # #3
@@ -37,7 +38,11 @@
          system "clear"
          read_csv
          main_menu
-       when 5
+       when 5 
+         system "clear"
+         entry_n
+         main_menu
+       when 6
          puts "Good-bye!"
          
          exit(0)
@@ -48,6 +53,18 @@
          main_menu
      end
    end
+   
+    def entry_n
+      system "clear" 
+      p "What number do you want to see?"
+      entry = gets.chomp
+      if entry == address_book.entries(entry) && entry <= address_book.entries.count
+          p address_book.entries(entry)
+      else 
+          p "Choose another number!"
+      end
+    end 
+    
     def view_all_entries
       address_book.entries.each do |entry|
       system "clear"
