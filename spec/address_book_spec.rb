@@ -1,26 +1,26 @@
 require_relative '../models/address_book'
  
- RSpec.describe AddressBook do
+RSpec.describe AddressBook do
     let(:book) { AddressBook.new }
     
     def check_entry(entry, expected_name, expected_number, expected_email)
-     expect(entry.name).to eq expected_name
-     expect(entry.phone_number).to eq expected_number
-     expect(entry.email).to eq expected_email
+         expect(entry.name).to eq expected_name
+         expect(entry.phone_number).to eq expected_number
+         expect(entry.email).to eq expected_email
     end
    
     describe "attributes" do
-     it "responds to entries" do
-       expect(book).to respond_to(:entries)
-     end
-     it "initializes entries as an array" do
-       expect(book.entries).to be_an(Array)
-     end
- 
-     it "initializes entries as empty" do
-       expect(book.entries.size).to eq(0)
-     end
-   end
+         it "responds to entries" do
+           expect(book).to respond_to(:entries)
+         end
+         it "initializes entries as an array" do
+           expect(book.entries).to be_an(Array)
+         end
+     
+         it "initializes entries as empty" do
+           expect(book.entries.size).to eq(0)
+         end
+    end
    
    describe "#remove_entry" do
       it "removes an entry using the name, phone_number and email" do
@@ -37,15 +37,14 @@ require_relative '../models/address_book'
     
           expect(book.entries.size).to eq 1
           expect(book.entries.first.name).to eq('Adam Mohrbacher')
+        end
     end
-  end
            
     describe "#add_entry" do
         it "adds only one entry to the address book" do
             book.add_entry('Ada Lovelace', '010.012.1815', 'augusta.king@lovelace.com')
- 
-        expect(book.entries.size).to eq(1)
-     end
+            expect(book.entries.size).to eq(1)
+        end
  
         it "adds the correct information to entries" do
            book.add_entry('Ada Lovelace', '010.012.1815', 'augusta.king@lovelace.com')
@@ -61,7 +60,6 @@ require_relative '../models/address_book'
         it "imports the correct number of entries" do
            book.import_from_csv("entries.csv")
            book_size = book.entries.size
-       # Check the size of the entries in AddressBook
            expect(book_size).to eq 5
         end
         
@@ -100,5 +98,34 @@ require_relative '../models/address_book'
           check_entry(entry_five, "Sussie", "555-555-2036", "sussie@blocmail.com")
         end
     end
+    
+    describe "#import_from_csv_2" do
+        it "imports the correct number of entries" do
+           book.import_from_csv("entries_2.csv")
+           book_size = book.entries.size
+           expect(book_size).to eq 3
+        end
+        
+        it "imports the 1st entry" do
+           book.import_from_csv("entries_2.csv")
+           # Check first entry
+           entry_one = book.entries[0]
+           check_entry(entry_one, "Kimmy", "785-904-8484", "flower.power@msn.com")
+        end
+        
+        it "imports the 2nd entry" do
+          book.import_from_csv("entries_2.csv")
+          # Check the second entry
+          entry_two = book.entries[1]
+          check_entry(entry_two, "Zed", "847-837-3939", "cowjumpsoverthemoon@yahoo.com")
+        end
+        
+         it "imports the 3rd entry" do
+          book.import_from_csv("entries_2.csv")
+          # Check the third entry
+          entry_three = book.entries[2]
+          check_entry(entry_three, "Bubba", "598-370-6345", "bubbasemail@gmail.com")
+        end
+    end 
 end     
    
