@@ -1,4 +1,5 @@
 require_relative 'entry'
+require "csv"
 
 class AddressBook
     attr_reader :entries
@@ -17,22 +18,15 @@ class AddressBook
      entries.insert(index, Entry.new(name, phone_number, email))
     end
     
+    def import_from_csv(file_name)
+     # Implementation goes here
+    end
+    
     def remove_entry(name, phone_number, email)
         entries.each do |entry|
             if name == entry.name && phone_number == entry.phone_number && email == entry.email
             entries.delete(entry)
             end 
         end
-<<<<<<< HEAD:models/address_book.rb
-<<<<<<< HEAD:models/address_book.rb
-    end
-end 
-=======
-<<<<<<< HEAD
-    end 
-=======
-=======
->>>>>>> 615b5fc9ae4109b41f0c205e251b2484db4ccdc0:address-bloc/models/address_book.rb
     end
 end
->>>>>>> master:address-bloc/models/address_book.rb
