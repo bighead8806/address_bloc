@@ -23,14 +23,5 @@ class AddressBook
             entries.delete(entry)
             end 
         end
-<<<<<<< HEAD:models/address_book.rb
     end
 end 
-=======
-<<<<<<< HEAD
-    end 
-=======
-    end
->>>>>>> checkpoint-4-assignment
-end
->>>>>>> master:address-bloc/models/address_book.rb
