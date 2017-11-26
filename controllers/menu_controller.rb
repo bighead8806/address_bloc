@@ -57,11 +57,20 @@ class MenuController
     def entry_n
       system "clear" 
       p "What number do you want to see?"
-      entry = gets.chomp
-      if entry == address_book.entries(entry) && entry <= address_book.entries.count
-          p address_book.entries(entry)
+      selection = gets.chomp.to_i 
+      entry = address_book.entries[selection - 1]
+      #puts entry.to_s
+      #entry_submenu(selection)
+      
+      if entry <= @address_book.entries.count && entry != nil
+         p "You selected #{entry}! Great job."
+         p entry
+         p "Press enter to return to the main menu."
+         gets.chomp
+         system "clear"
       else 
-          p "Choose another number!"
+         puts "Choose another number! #{entry} is not valid at all. You're crazy to think it is."
+         entry_n
       end
     end 
     

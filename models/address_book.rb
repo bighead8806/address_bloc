@@ -23,16 +23,5 @@ class AddressBook
             entries.delete(entry)
             end 
         end
-<<<<<<< HEAD:models/address_book.rb
-<<<<<<< HEAD:models/address_book.rb
-    end
-end 
-=======
-<<<<<<< HEAD
-    end 
-=======
-=======
->>>>>>> 615b5fc9ae4109b41f0c205e251b2484db4ccdc0:address-bloc/models/address_book.rb
     end
 end
->>>>>>> master:address-bloc/models/address_book.rb
