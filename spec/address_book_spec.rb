@@ -24,10 +24,7 @@ require_relative '../models/address_book'
    
    describe "#remove_entry" do
       it "removes an entry using the name, phone_number and email" do
-<<<<<<< HEAD
-          book = AddressBook.new
-=======
->>>>>>> checkpoint-6-reading-CSV
+
           book.add_entry('Adam Mohrbacher', '621.303.3271', 'a.mohrbacher@yahoo.com')
     
           name = 'Ada Lovelace'
@@ -60,9 +57,6 @@ require_relative '../models/address_book'
            expect(new_entry.email).to eq('augusta.king@lovelace.com')
         end
     end
-<<<<<<< HEAD
-end
-=======
     
     describe "#import_from_csv" do
         it "imports the correct number of entries" do
@@ -109,4 +103,3 @@ end
     end
 end     
    
->>>>>>> checkpoint-6-reading-CSV
