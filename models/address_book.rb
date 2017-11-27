@@ -34,4 +34,8 @@ class AddressBook
             end 
         end
     end
+<<<<<<< HEAD
 end
+=======
+end 
+>>>>>>> checkpoint-5-menu
