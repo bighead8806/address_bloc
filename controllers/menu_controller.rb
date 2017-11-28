@@ -50,7 +50,7 @@ class MenuController
         else
          system "clear"
          puts "Sorry, that is not a valid input"
-         main_menu
+         main_menum 
      end
    end
     
@@ -58,11 +58,11 @@ class MenuController
       system "clear" 
       p "What number do you want to see?"
       selection = gets.chomp.to_i
-      entry = @address_book.entries[selection - 1]
-      #puts entry.to_s
+      entry = @address_book.entries[selection - 1] 
+      puts entry.to_s
       entry_submenu(entry)
       
-      if entry <= @address_book.entries.count && entry != nil 
+      if entry < @address_book.entries.count && entry != nil 
          p "You selected #{entry}! Great job."
          p entry
          p "Press enter to return to the main menu."
