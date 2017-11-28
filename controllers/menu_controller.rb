@@ -70,6 +70,7 @@ class MenuController
          system "clear"
       else
          p "Choose another number! #{entry} is not valid. Press enter to try again."
+         gets.chomp
          entry_n 
       end
     end
