@@ -53,26 +53,27 @@ class MenuController
          main_menu
      end
    end
-   
+    
     def entry_n
       system "clear" 
       p "What number do you want to see?"
-      selection = gets.chomp.to_i 
-      entry = address_book.entries[selection - 1]
+      selection = gets.chomp.to_i
+      entry = @address_book.entries[selection - 1]
       #puts entry.to_s
-      #entry_submenu(selection)
+      entry_submenu(entry)
       
-      if entry <= @address_book.entries.count && entry != nil
+      if entry <= @address_book.entries.count && entry != nil 
          p "You selected #{entry}! Great job."
          p entry
          p "Press enter to return to the main menu."
          gets.chomp
          system "clear"
-      else 
-         puts "Choose another number! #{entry} is not valid at all. You're crazy to think it is."
-         entry_n
+      else
+         p "Choose another number! #{entry} is not valid. Press enter to try again."
+         entry_n 
       end
-    end 
+    end
+
     
     def view_all_entries
       address_book.entries.each do |entry|
@@ -106,6 +107,7 @@ class MenuController
  
    def read_csv
    end
+   
    def entry_submenu(entry)
      puts "n - next entry"
      puts "d - delete entry"
@@ -126,4 +128,4 @@ class MenuController
          entry_submenu(entry)
      end
    end
- end 
+end 
