@@ -175,4 +175,11 @@
      end
    end
    
+   def nuke 
+    address_book.entries.each do |entry|
+      address_book.entries.delete(entry)
+      puts "ALL entries deleted."
+      main_menu
+      end
+   end  
  end 
