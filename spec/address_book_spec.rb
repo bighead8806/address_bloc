@@ -20,9 +20,25 @@ RSpec.describe AddressBook do
          it "initializes entries as empty" do
            expect(book.entries.size).to eq(0)
          end
-    end
+    end 
    
-   describe "#remove_entry" do
+   describe "#add_entry" do
+        it "adds only one entry to the address book" do
+            book.add_entry('Ada Lovelace', '010.012.1815', 'augusta.king@lovelace.com')
+            expect(book.entries.size).to eq(1)
+        end
+ 
+        it "adds the correct information to entries" do
+           book.add_entry('Ada Lovelace', '010.012.1815', 'augusta.king@lovelace.com')
+           new_entry = book.entries[0]
+     
+           expect(new_entry.name).to eq('Ada Lovelace')
+           expect(new_entry.phone_number).to eq('010.012.1815')
+           expect(new_entry.email).to eq('augusta.king@lovelace.com')
+        end
+    end
+    
+    describe "#remove_entry" do
       it "removes an entry using the name, phone_number and email" do
 
           book.add_entry('Adam Mohrbacher', '621.303.3271', 'a.mohrbacher@yahoo.com')
@@ -38,22 +54,6 @@ RSpec.describe AddressBook do
     
           expect(book.entries.size).to eq 1
           expect(book.entries.first.name).to eq('Adam Mohrbacher')
-        end
-    end
-           
-    describe "#add_entry" do
-        it "adds only one entry to the address book" do
-            book.add_entry('Ada Lovelace', '010.012.1815', 'augusta.king@lovelace.com')
-            expect(book.entries.size).to eq(1)
-        end
- 
-        it "adds the correct information to entries" do
-           book.add_entry('Ada Lovelace', '010.012.1815', 'augusta.king@lovelace.com')
-           new_entry = book.entries[0]
-     
-           expect(new_entry.name).to eq('Ada Lovelace')
-           expect(new_entry.phone_number).to eq('010.012.1815')
-           expect(new_entry.email).to eq('augusta.king@lovelace.com')
         end
     end
     
@@ -109,24 +109,20 @@ RSpec.describe AddressBook do
         
         it "imports the 1st entry" do
            book.import_from_csv("entries_2.csv")
-           # Check first entry
            entry_one = book.entries[0]
            check_entry(entry_one, "Kimmy", "785-904-8484", "flower.power@msn.com")
         end
         
         it "imports the 2nd entry" do
           book.import_from_csv("entries_2.csv")
-          # Check the second entry
           entry_two = book.entries[1]
           check_entry(entry_two, "Zed", "847-837-3939", "cowjumpsoverthemoon@yahoo.com")
         end
         
          it "imports the 3rd entry" do
           book.import_from_csv("entries_2.csv")
-          # Check the third entry
           entry_three = book.entries[2]
           check_entry(entry_three, "Bubba", "598-370-6345", "bubbasemail@gmail.com")
         end
-    end 
-end     
-   
+    end
+end
