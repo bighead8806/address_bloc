@@ -13,12 +13,13 @@
      puts "2 - Create an entry"
      puts "3 - Search for an entry"
      puts "4 - Import entries from a CSV"
-     puts "5 - Exit"
+     puts "5 - Nuke these entries!"
+     puts "6 - Exit"
      print "Enter your selection: "
  
      selection = gets.to_i
      
-     case selection
+    case selection
        when 1
          system "clear"
          view_all_entries
@@ -36,16 +37,19 @@
          read_csv
          main_menu
        when 5
+         nuke
+         puts "ALL entries deleted"
+         main_menu
+       when 6
          puts "Good-bye!"
-         
          exit(0)
-         
         else
          system "clear"
          puts "Sorry, that is not a valid input"
          main_menu
-     end
+    end
    end
+    
     def view_all_entries
       address_book.entries.each do |entry|
       system "clear"
@@ -103,6 +107,10 @@
        puts "#{file_name} is not a valid CSV file, please enter the name of a valid CSV file"
        read_csv
      end
+   end
+   
+   def nuke
+     @entries = []
    end
    
    def entry_submenu(entry)
@@ -174,12 +182,4 @@
          search_submenu(entry)
      end
    end
-   
-   def nuke 
-    address_book.entries.each do |entry|
-      address_book.entries.delete(entry)
-      puts "ALL entries deleted."
-      main_menu
-      end
-   end  
  end 
