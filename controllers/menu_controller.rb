@@ -110,7 +110,7 @@
    end
    
    def nuke
-     @entries = []
+     @address_book.nuke
    end
    
    def entry_submenu(entry)
